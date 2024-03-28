@@ -1,20 +1,22 @@
 #  BTSTACK: Bluetooth&reg; LE GATT Server Throughput
 
-This code example demonstrates the maximum throughput (using GATT layer notification and GATT write command) that can be achieved with Infineon PSoC&trade; 6 MCU with AIROC&trade; Bluetooth&reg; LE and AIROC&trade; CYW20829 Bluetooth&reg; LE SoC devices.
+This code example demonstrates the maximum throughput (using GATT layer notification and GATT write command) that can be achieved with Infineon PSoC&trade; 6 MCU with AIROC&trade; Bluetooth&reg; LE, AIROC&trade; CYW89829, and AIROC&trade; CYW20829 Bluetooth&reg; LE SoC devices.
 
 This application sends GATT notifications and calculates the Bluetooth&reg; LE Tx throughput and receives GATT write command and calculates the Bluetooth&reg; LE Rx throughput.
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-btstack-freertos-throughput-server)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzYxOTUiLCJTcGVjIE51bWJlciI6IjAwMi0zNjE5NSIsIkRvYyBUaXRsZSI6IkJUU1RBQ0s6IEJsdWV0b290aCZyZWc7IExFIEdBVFQgU2VydmVyIFRocm91Z2hwdXQiLCJyaWQiOiJndXB0YXJpIiwiRG9jIHZlcnNpb24iOiIxLjAuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
+[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzYxOTUiLCJTcGVjIE51bWJlciI6IjAwMi0zNjE5NSIsIkRvYyBUaXRsZSI6IkJUU1RBQ0s6IEJsdWV0b290aCZyZWc7IExFIEdBVFQgU2VydmVyIFRocm91Z2hwdXQiLCJyaWQiOiJndXB0YXJpIiwiRG9jIHZlcnNpb24iOiIxLjEuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
 
 ## Requirements
 
-- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.0
+- [ModusToolbox&trade;](https://www.infineon.com/modustoolbox) v3.0 or later (tested with v3.0)
 - Board support package (BSP) minimum required version:
-   - CYW920829M2EVK-02: v1.0.1
+   - CYW920829M2EVK-02: v1.0.2
+   - CYW989829M2EVB-01: v1.0.1
 - Programming language: C
-- Associated parts: [PSoC&trade; 6 MCU with AIROC&trade; Bluetooth&reg; LE](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/psoc-63/), [AIROC&trade; CYW20829 Bluetooth&reg; LE SoC](https://www.infineon.com/cms/en/product/promopages/airoc20829)
+- Associated parts: [PSoC&trade; 6 MCU with AIROC&trade; Bluetooth&reg; LE](https://www.infineon.com/cms/en/product/microcontroller/32-bit-psoc-arm-cortex-microcontroller/psoc-6-32-bit-arm-cortex-m4-mcu/psoc-63/), [AIROC&trade; CYW20829 Bluetooth&reg; LE SoC](https://www.infineon.com/cms/en/product/promopages/airoc20829), and [AIROC&trade; CYW89829 Bluetooth&reg; LE SoC]()
+
 
 ## Supported toolchains (make variable 'TOOLCHAIN')
 
@@ -27,7 +29,8 @@ This application sends GATT notifications and calculates the Bluetooth&reg; LE T
 - [PSoC&trade; 6 Bluetooth&reg; LE Pioneer Kit](https://www.infineon.com/CY8CKIT-062-BLE) (`CY8CKIT-062-BLE`) – Default value of `TARGET`
 - [PSoC&trade; 6 Bluetooth&reg; LE Prototyping Kit](https://www.infineon.com/CY8CPROTO-063-BLE) (`CY8CPROTO-063-BLE`)
 - [EZ-BLE Arduino Evaluation Board](https://www.infineon.com/cms/en/product/evaluation-boards/cyble-416045-eval/) (`CYBLE-416045-EVAL`)
-- AIROC&trade; CYW20829 Bluetooth&reg; LE Evaluation Kit (`CYW920829M2EVK-02`)
+- [AIROC&trade; CYW20829 Bluetooth&reg; LE evaluation Kit](https://www.infineon.com/CYW920829M2EVK-02) (`CYW920829M2EVK-02`)
+- AIROC&trade; CYW89829 Bluetooth&reg; LE evaluation kit (`CYW989829M2EVB-01`)
 
 
 ## Hardware setup
@@ -38,7 +41,7 @@ Two Bluetooth&reg; LE boards are required to use this code example: one for Blue
 
 > **Note:** PSoC&trade; 6 Bluetooth&reg; LE Pioneer Kit (CY8CKIT-062-BLE) and the PSoC&trade; ship with KitProg2 installed. ModusToolbox&trade; requires KitProg3. Before using this code example, make sure that the board is upgraded to KitProg3. The tool and instructions are available in the [Firmware Loader](https://github.com/Infineon/Firmware-loader) GitHub repository. If you do not upgrade, you will see an error like "unable to find CMSIS-DAP device" or "KitProg firmware is out of date".
 
-AIROC&trade; CYW20829 Bluetooth&reg; LE Kit (CYW920829M2EVK-02) ships with KitProg3 version 2.2.1 installed. ModusToolbox&trade; requires KitProg3 with the latest version 2.40. Before using this code example, make sure that the board is upgraded to KitProg3. The tool and instructions are available in the Firmware Loader GitHub repository. If you do not upgrade, you will see an error such as "unable to find CMSIS-DAP device" or "KitProg firmware is out of date".
+AIROC&trade; CYW20829 Bluetooth&reg; LE Kit (CYW920829M2EVK-02) ships with KitProg3 version 2.21 installed. ModusToolbox&trade; requires KitProg3 with the latest version 2.40. Before using this code example, make sure that the board is upgraded to KitProg3. The tool and instructions are available in the Firmware Loader GitHub repository. If you do not upgrade, you will see an error such as "unable to find CMSIS-DAP device" or "KitProg firmware is out of date".
 
 
 ## Software setup
@@ -263,9 +266,9 @@ For more details, see the [ModusToolbox&trade; tools package user guide](https:/
 
       8. Select **Notify**.
 
-       **Figure 4. Testing with AIROC&trade; Bluetooth&reg; Connect App on Android**
+      **Figure 4. Testing with AIROC&trade; Bluetooth&reg; Connect App on Android**
 
-      ![](./images/app.png)
+   ![](./images/app.png)
 
       The device starts sending the GATT notifications to the smartphone.
 
@@ -351,7 +354,7 @@ A few of the known factors that affect the data throughput are as follows:
 
     **Figure 6. LE packet format**
 
-    ![](images/le-packet-format.png)
+   ![](images/le-packet-format.png)
 
     As shown in **Figure 6**, the LE packet includes many packet header bytes which get added up in each layer that are not accounted for in the application data throughput. To minimize the packet overhead, try to configure the ATT MTU size in such a way that the ATT payload data will always fit in a single LE packet. In this code example, the ATT MTU size used is 247 bytes, which exactly matches the ATT payload data size of 244 bytes.
 
@@ -385,7 +388,7 @@ The GATT Server has a custom service called "Throughput Measurement". This servi
 
 ![Custom service](images/custom-service.png)
 
-**Figure 8** shows the flowchart for the application.
+Figure 8 shows the flowchart for the application.
 
 **Figure 8. Bluetooth&reg; LE GATT Server application flow**
 
@@ -402,7 +405,7 @@ The GATT Server has a custom service called "Throughput Measurement". This servi
 
 Resources  | Links
 -----------|----------------------------------
-Application notes  | [AN228571](https://www.infineon.com/AN228571) – Getting started with PSoC&trade; 6 MCU on ModusToolbox&trade; <br>  [AN215656](https://www.infineon.com/AN215656) – PSoC&trade; 6 MCU: Dual-CPU system design
+Application notes  | [AN228571](https://www.infineon.com/AN228571) – Getting started with PSoC&trade; 6 MCU on ModusToolbox&trade; <br>  [AN215656](https://www.infineon.com/AN215656) – PSoC&trade; 6 MCU: Dual-CPU system design <br> [AN238254](https://www.infineon.com/AN238254) Getting started with AIROC&trade; CYW20829 Bluetooth&reg; LE on ModusToolbox&trade;
 Code examples  | [Using ModusToolbox&trade;](https://github.com/Infineon/Code-Examples-for-ModusToolbox-Software) on GitHub
 Device documentation | [PSoC&trade; 6 MCU datasheets](https://documentation.infineon.com/html/psoc6/bnm1651211483724.html) <br> [PSoC&trade; 6 technical reference manuals](https://documentation.infineon.com/html/psoc6/zrs1651212645947.html) <br> [AIROC&trade; CYW20829 Bluetooth&reg; LE SoC](https://www.infineon.com/cms/en/product/promopages/airoc20829)
 Development kits | Select your kits from the [Evaluation board finder](https://www.infineon.com/cms/en/design-support/finder-selection-tools/product-finder/evaluation-board)
@@ -428,6 +431,7 @@ Document title: *CE236195* - *BTSTACK: Bluetooth&reg; LE GATT Server Throughput*
  Version | Description of change
  ------- | ---------------------
  1.0.0   | New code example
+ 1.1.0   | Added support for CYW989829M2EVB-01 and Connection with IoS
 <br>
 
 
