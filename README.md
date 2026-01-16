@@ -6,7 +6,7 @@ This application sends GATT notifications and calculates the Bluetooth&reg; LE T
 
 [View this README on GitHub.](https://github.com/Infineon/mtb-example-btstack-freertos-throughput-server)
 
-[Provide feedback on this code example.](https://cypress.co1.qualtrics.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzYxOTUiLCJTcGVjIE51bWJlciI6IjAwMi0zNjE5NSIsIkRvYyBUaXRsZSI6IkJUU1RBQ0s6IEJsdWV0b290aCZyZWc7IExFIEdBVFQgU2VydmVyIFRocm91Z2hwdXQiLCJyaWQiOiJndXB0YXJpIiwiRG9jIHZlcnNpb24iOiIyLjEuMCIsIkRvYyBMYW5ndWFnZSI6IkVuZ2xpc2giLCJEb2MgRGl2aXNpb24iOiJNQ0QiLCJEb2MgQlUiOiJJQ1ciLCJEb2MgRmFtaWx5IjoiUFNPQyJ9)
+[Provide feedback on this code example.](https://yourvoice.infineon.com/jfe/form/SV_1NTns53sK2yiljn?Q_EED=eyJVbmlxdWUgRG9jIElkIjoiQ0UyMzYxOTUiLCJTcGVjIE51bWJlciI6IjAwMi0zNjE5NSIsIkRvYyBUaXRsZSI6IkJUU1RBQ0s6IEJsdWV0b290aCZyZWc7IExFIEdBVFQgU2VydmVyIFRocm91Z2hwdXQiLCJyaWQiOiJyaWNoYS5ndXB0YUBpbmZpbmVvbi5jb20iLCJEb2MgdmVyc2lvbiI6IjMuMC4wIiwiRG9jIExhbmd1YWdlIjoiRW5nbGlzaCIsIkRvYyBEaXZpc2lvbiI6Ik1DRCIsIkRvYyBCVSI6IklDVyIsIkRvYyBGYW1pbHkiOiJQU09DIn0=)
 
 ## Requirements
 
@@ -432,8 +432,9 @@ Document title: *CE236195* - *BTSTACK: Bluetooth&reg; LE GATT Server Throughput*
  ------- | ---------------------
  1.0.0   | New code example
  1.1.0   | Added support for CYW989829M2EVB-01 and Connection with IoS
- 2.0.0   | Added support for CYW989829M2EVB-03 ,BSP and BTStack-integration major update for BT Firmware as a separate asset and removal of combo devices as doesn't     support fw as separate     
- 2.1.0  | Remove support for CYW989829M2EVB-03
+ 2.0.0   | Added support for CYW989829M2EVB-03 BSP and BTStack-integration major update for BT Firmware as a separate asset and removal of combo devices as doesn't support fw as separate     
+ 2.1.0   | Remove support for CYW989829M2EVB-03
+ 3.0.0   | Update Code Example with BTSTACK 5.0.0 and update btstack-integration with version 7.X.
 
 <br>
 
